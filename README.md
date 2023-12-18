@@ -43,8 +43,14 @@ sequenceDiagram
 
     create participant sens as Sensitive Database
     med->>sens: "HTTP"
-    destroy sens
     sens->>med: "HTTP"
+
+    create participant rev as Reverse Proxy
+    med-xrev: "TCP"
+    create participant pub as Public Database
+    rev->>pub: "HTTP"
+    pub->>rev:"HTTP"
+    rev->>med:"TCP"
 
     med->>cli: "HTTP"
 ```
