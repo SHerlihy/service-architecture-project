@@ -41,13 +41,13 @@ sequenceDiagram
     participant med as Mediator
     cli->>med: "HTTP"
 
-    create participant sens as Sensitive Database
+    participant sens as Sensitive Database
     med->>sens: "HTTP"
     sens->>med: "HTTP"
 
-    create participant rev as Reverse Proxy
+    participant rev as Reverse Proxy
     med-xrev: "TCP"
-    create participant pub as Public Database
+    participant pub as Public Database
     rev->>pub: "HTTP"
     pub->>rev:"HTTP"
     rev->>med:"TCP"
