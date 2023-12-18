@@ -10,6 +10,7 @@ This repo describes the architecture and design on a service based architecture 
 
 ## Current Network Flow
 
+### Flow
 ```mermaid
 flowchart TD
     CLI[Client]
@@ -33,6 +34,7 @@ flowchart TD
     Med --> CLI
 ```
 
+### Sequence
 ```mermaid
 sequenceDiagram
     participant cli as Client

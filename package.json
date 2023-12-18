@@ -4,6 +4,7 @@
   "description": "This repo describes the architecture and design on a service based architecture used to seperate sensitive data from other data.",
   "main": "index.js",
   "scripts": {
+    "dia-pngs": "git push --set-upstream origin main",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
