@@ -10,6 +10,16 @@ This repo describes the architecture and design on a service based architecture 
 
 ## Current Network Flow
 
+### Test
+```mermaid
+
+sequenceDiagram
+    participant cli as Client
+    participant med as Mediator
+    cli->>med: "HTTP"
+    med->>cli: "HTTP"
+```
+
 ### Sequence
 ```mermaid
 sequenceDiagram
