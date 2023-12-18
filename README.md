@@ -10,40 +10,6 @@ This repo describes the architecture and design on a service based architecture 
 
 ## Current Network Flow
 
-### Test
-```mermaid
-
-sequenceDiagram
-    participant cli as Client
-    participant med as Mediator
-    cli->>med: "HTTP"
-    med->>cli: "HTTP"
-```
-
-### Sequence
-```mermaid
-sequenceDiagram
-    participant cli as Client
-    participant med as Mediator
-    cli->>med: HTTP
-
-    create participant sens as Sensitive Database
-    med->>sens: HTTP
-    destroy sens
-    sens->>med: HTTP
-
-    create participant rev as Reverse Proxy
-    med-xrev: TCP
-    create participant pub as Public Database
-    rev->>pub: HTTP
-    destroy pub
-    pub->>rev:HTTP
-    destroy rev
-    rev->>med:TCP
-
-    med->>cli: HTTP
-```
-
 ### Flow
 ```mermaid
 flowchart TD
@@ -68,3 +34,26 @@ flowchart TD
     Med --> CLI
 ```
 
+### Sequence
+```mermaid
+sequenceDiagram
+    participant cli as Client
+    participant med as Mediator
+    cli->>med: "HTTP"
+
+    create participant sens as Sensitive Database
+    med->>sens: "HTTP"
+    destroy sens
+    sens->>med: "HTTP"
+
+    create participant rev as Reverse Proxy
+    med-xrev: "TCP"
+    create participant pub as Public Database
+    rev->>pub: "HTTP"
+    destroy pub
+    pub->>rev:"HTTP"
+    destroy rev
+    rev->>med:"TCP"
+
+    med->>cli: "HTTP"
+```
