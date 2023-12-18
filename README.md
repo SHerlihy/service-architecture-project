@@ -41,14 +41,5 @@ sequenceDiagram
     participant med as Mediator
     cli->>med: "HTTP"
 
-    create participant rev as Reverse Proxy
-    med-xrev: "TCP"
-    create participant pub as Public Database
-    rev->>pub: "HTTP"
-    destroy pub
-    pub->>rev:"HTTP"
-    destroy rev
-    rev->>med:"TCP"
-
     med->>cli: "HTTP"
 ```
