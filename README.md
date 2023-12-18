@@ -41,5 +41,10 @@ sequenceDiagram
     participant med as Mediator
     cli->>med: "HTTP"
 
+    create participant sens as Sensitive Database
+    med->>sens: "HTTP"
+    destroy sens
+    sens->>med: "HTTP"
+
     med->>cli: "HTTP"
 ```
