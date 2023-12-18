@@ -39,21 +39,7 @@ flowchart TD
 sequenceDiagram
     participant cli as Client
     participant med as Mediator
-    cli->>med: "HTTP"
+    cli->>med: HTTP
 
-    participant sens as Sensitive Database
-    med->>sens: "HTTP"
-    destroy sens
-    sens->>med: "HTTP"
-
-    participant rev as Reverse Proxy
-    med-xrev: "TCP"
-    participant pub as Public Database
-    rev->>pub: "HTTP"
-    destroy pub
-    pub->>rev:"HTTP"
-    destroy rev
-    rev->>med:"TCP"
-
-    med->>cli: "HTTP"
+    med->>cli: HTTP
 ```
